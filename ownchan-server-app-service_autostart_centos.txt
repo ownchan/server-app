@@ -1,0 +1,10 @@
+To auto start a new service:
+
+- Find out the name of service's script from /etc/init.d/ directory e.g. mysqld or httpd.
+- Add it to chkconfig. sudo chkconfig --add mysqld.
+- Make sure it is in the chkconfig. sudo chkconfig --list mysqld.
+- Set it to autostart. sudo chkconfig mysqld on.
+
+For ownchan-server-app, for example use the commands with "ownchan-server-app" instead of "mysqld".
+
+Also, if you change the init-script afterwards, call systemctl daemon-reload after saving the changes to the init script.

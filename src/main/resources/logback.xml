@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+  <contextName>org.ownchan.server.app</contextName>
+  <jmxConfigurator />
+
+  <property name="LOG_PATTERN" value="%date %-5level [%-45logger{32}] [%thread] %message%n"/>
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${LOG_PATTERN}</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <append>true</append>
+    <file>${logDir}/ownchan-server-app.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>${logDir}/%d{yyyy/MM/yyyy-MM-dd}.%i.ownchan-server-app.log.gz</fileNamePattern>
+      <maxHistory>14</maxHistory>
+      <maxFileSize>100MB</maxFileSize>
+      <totalSizeCap>3GB</totalSizeCap>
+    </rollingPolicy>
+    <encoder>
+      <pattern>${LOG_PATTERN}</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE-ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <append>true</append>
+    <file>${logDir}/ownchan-server-app-error.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>${logDir}/%d{yyyy/MM/yyyy-MM-dd}.%i.ownchan-server-app-error.log.gz</fileNamePattern>
+      <maxHistory>14</maxHistory>
+      <maxFileSize>100MB</maxFileSize>
+      <totalSizeCap>1GB</totalSizeCap>
+    </rollingPolicy>
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>ERROR</level>
+    </filter>
+    <encoder>
+      <pattern>${LOG_PATTERN}</pattern>
+    </encoder>
+  </appender>
+
+  <include resource="config/mode/${appMode:-debug}/logback.xml" />
+</configuration>

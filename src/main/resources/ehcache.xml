@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ehcache name="OCNA_CacheManager">
+  <defaultCache
+     maxEntriesLocalHeap="100000"
+     statistics="true"
+     eternal="false"
+     timeToIdleSeconds="30"
+     timeToLiveSeconds="30"
+     overflowToDisk="false"
+     diskPersistent="false"
+     memoryStoreEvictionPolicy="LRU"
+  />
+</ehcache>
