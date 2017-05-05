@@ -49,7 +49,7 @@ public class ContextUserAuthorityImpl implements ContextUserAuthority {
     this.typeBasedName = dbPrivilege.getName();
     this.msgIdName = dbPrivilege.getMsgIdName();
     this.msgIdDescription = dbPrivilege.getMsgIdDescription();
-    this.authority = this.type.getNamespace() + this.typeBasedName;
+    this.authority = this.type.getNamespace() + "_" + this.typeBasedName;
   }
 
   public ContextUserAuthorityImpl(DbRole dbRole) {
@@ -59,7 +59,7 @@ public class ContextUserAuthorityImpl implements ContextUserAuthority {
     this.typeBasedName = dbRole.getName();
     this.msgIdName = dbRole.getMsgIdName();
     this.msgIdDescription = dbRole.getMsgIdDescription();
-    this.authority = this.type.getNamespace() + this.typeBasedName;
+    this.authority = this.type.getNamespace() + "_" + this.typeBasedName;
   }
 
   @Override
