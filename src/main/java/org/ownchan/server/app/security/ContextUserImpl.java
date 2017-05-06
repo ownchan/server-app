@@ -61,6 +61,8 @@ public class ContextUserImpl implements ContextUser {
 
   private Date lastPasswordChangeTime;
 
+  private Date beaconTime;
+
   private Date lastDbLoadTime;
 
   private Set<ContextUserAuthorityImpl> authorities;
@@ -146,6 +148,11 @@ public class ContextUserImpl implements ContextUser {
   @Override
   public Date getLastPasswordChangeTime() {
     return lastPasswordChangeTime;
+  }
+
+  @Override
+  public Date getBeaconTime() {
+    return beaconTime;
   }
 
   @Override
