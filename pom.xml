@@ -181,11 +181,12 @@
       <!-- the formatter-maven-plugin will format all java sources according 
         to ownchan's eclipse formatter settings -->
       <plugin>
-        <groupId>net.revelc.code.formatter</groupId>
+        <groupId>com.marvinformatics.formatter</groupId>
         <artifactId>formatter-maven-plugin</artifactId>
-        <version>2.0.1</version>
+        <version>1.9.0</version>
         <configuration>
           <configFile>${project.basedir}/../server-parent/ownchan-formatter.xml</configFile>
+          <configJsFile>${project.basedir}/../server-parent/ownchan-formatter-js.xml</configJsFile>
         </configuration>
         <executions>
           <execution>
@@ -238,9 +239,9 @@
                 </pluginExecution>
                 <pluginExecution>
                   <pluginExecutionFilter>
-                    <groupId>net.revelc.code.formatter</groupId>
+                    <groupId>com.marvinformatics.formatter</groupId>
                     <artifactId>formatter-maven-plugin</artifactId>
-                    <versionRange>[2.0.1,)</versionRange>
+                    <versionRange>[1.9.0,)</versionRange>
                     <goals>
                       <goal>format</goal>
                     </goals>
